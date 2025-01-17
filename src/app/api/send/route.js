@@ -18,11 +18,10 @@ export async function POST(req, res) {
     });
     const mailOptions = {
       from: email, // Sender's email
-      to: process.env.GMAIL_USER, // Your Gmail address (to receive emails)
-      subject: `Contact form submission from ${email}`,
+      to: [email, process.env.GMAIL_USER], // Your Gmail address (to receive emails)
+      subject: subject,
       text: message,
       html: `<p>Thank you for contacting us!</p>
-             <p><strong>Email:</strong> ${email}</p>
              <p><strong>Message:</strong> ${message}</p>`,
     };
 
